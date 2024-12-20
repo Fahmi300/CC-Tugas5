@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mywebapp-deployment
+  labels:
+    app: mywebapp
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: mywebapp
+  template:
+    metadata:
+      labels:
+        app: mywebapp
+    spec:
+      containers:
+        - name: mywebapp-container
+          image: fahmi300/mywebapp:1.0 
+          ports:
+            - containerPort: 3000 
+            - containerPort: 5000 
+
